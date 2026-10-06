@@ -29,7 +29,7 @@
 | `location` | ✓ | 画面を表示する場所（下記）。 |
 | `entry` | ✓ | 画面の HTML ファイル。拡張自身のディレクトリからの相対パス。 |
 | `icon` | - | 呼び出しボタンに使う画像ファイル（拡張のディレクトリからの相対パス）。省略すると `title` が文字で表示される。 |
-| `permissions` | - | この画面が AHQ 本体に呼び出せるメソッドの許可リスト（下記）。 |
+| `permissions` | - | この画面が AHQ 本体に呼び出せるメソッドの許可リスト（下記）。メソッドを呼ばないなら省略してよい。 |
 
 ## 表示する場所（`location`）
 
@@ -99,6 +99,8 @@ const project = await window.ahq.call('project.getCurrent')
 
 - `npm run deploy`: ビルドして zip にまとめ、AHQ へ上書きインストールします（1 回で終了します）。
 - `npm start`: ウォッチしながらビルドし、保存のたびにインストールします。
+- `npm run check`: 型チェック（`tsc --noEmit`）を行います。
+- `ahq` が PATH に無い場合は、`AHQ_BIN` で実行ファイルを指定します（例: `AHQ_BIN="/path/to/ahq.app/Contents/MacOS/ahq" npm run deploy`）。
 - アイコンは Iconify が使えます（`unplugin-icons`）。
 - テンプレートは、画面の JS を 1 つの IIFE として出力するようにあらかじめ設定されています。
 

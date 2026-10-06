@@ -41,8 +41,8 @@ AHQ は、複数のコーディングエージェントのセッションを並�
    ahq create-extension . --template vite
    ```
 
-2. `manifest.json`（`name`・`description`・`views` など）と、`src/ui/` の画面を、要件に合わせて書き換えます。
-3. `npm install` してから、`npm run deploy` を実行します。ビルドして zip にまとめ、AHQ に上書きインストールするところまで、1 回で行います。
+2. `manifest.json`（`name`・`description`・`views` など）と、`src/ui/` の画面を、要件に合わせて書き換えます。テンプレートの「My Extension」は、`manifest.json` のほか `src/ui/index.html` の `<title>` と `src/ui/main.ts` の `<h1>` にも書かれているので、あわせて書き換えます。
+3. `npm install` してから、`npm run deploy` を実行します。ビルドして zip にまとめ、AHQ に上書きインストールするところまで、1 回で行います。`ahq` が PATH に無い場合は、`AHQ_BIN=<ahq の実行ファイルのパス> npm run deploy` とします。
 4. 画面の制約（`type="module"` が使えないなど）は `docs/views.md` を守ってください。テンプレートの `vite.config.ts` は、それを満たす設定になっているので、変更しないでください。
 
 ### hooks だけの拡張
@@ -55,7 +55,8 @@ AHQ は、複数のコーディングエージェントのセッションを並�
 - インストールした拡張は、AHQ を**再起動せずに**反映されます。ユーザーに、AHQ で見た目・動作を確認してもらい、調整を繰り返してください。
 - 確認が済むまで、何度でも上書きインストールして構いません（`--overwrite`）。
 - `ahq extension install` が警告（`warning:`）を出したら、内容をユーザーに伝えて、直してください。
-- 拡張が一覧に出ているかは、`ahq extension list` で確認できます。
+- 拡張が一覧に出ているかは、`ahq extension list` で確認できます。`ahq extension install` の出力は、正規化した manifest の JSON です（サウンドパックでは音声の base64 も含み、非常に長くなります）。成否は終了コードで判断し、出力は `> /dev/null` などで捨ててください。
+- サウンドパックは、AHQ の設定の「完了サウンド」「確認待ちサウンド」に `<拡張id>.<サウンドid>` が出るか、ユーザーに確認してもらいます。
 
 ## 守ること
 
@@ -63,5 +64,5 @@ AHQ は、複数のコーディングエージェントのセッションを並�
 - `docs/` の中身は、書き換えない。
 - テーマの色は、既存のテーマを再現する場合は、公式のパレットなどの一次情報から取る。記憶や近似値に頼らない。
 - 拡張の `version` は、変更のたびに上げる必要はないが、公開するときは上げる。
-- `node_modules/` と `dist/` は、git に入れない（`.gitignore` を確認する）。
+- `node_modules/` と `dist/` は、git に入れない（`.gitignore` がある場合は確認する）。
 - ユーザーのファイルを、確認なしに削除・上書きしない。
