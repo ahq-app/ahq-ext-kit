@@ -59,11 +59,12 @@ AHQ の拡張機能は、`manifest.json` を持つディレクトリ（または
 拡張は、zip にまとめて `ahq` コマンドでインストールします。AHQ が起動中なら、再起動せずに反映されます（テーマ・サウンド・画面・フックのすべて）。
 
 ```sh
-ahq extension install <zip のパス または URL> [--overwrite]
+ahq extension install <zip のパス または URL> [--overwrite] [--json]
 ahq extension list
 ahq extension uninstall <id>
 ```
 
+- 成功すると `installed <id> (<name> v<version>)` の 1 行を出力します。`--json` を付けると、登録された内容（`warnings` を含む。音声などの `dataUrl` は除く）を JSON で出力します。成否は終了コードで判断します。
 - 同じ `id` の拡張が既にあると、`--overwrite` を付けない限りエラーになります。開発中は常に `--overwrite` を付けます。
 - 今テーマ・サウンドとして選択されている拡張は、アンインストールできません。
 - AHQ が `ahq` を PATH に持たない場合は、AHQ アプリ内の実行ファイル（`AHQ.app/Contents/MacOS/ahq`）を直接指定します。
