@@ -1,48 +1,50 @@
 # ahq-ext-kit
 
-[AHQ](https://github.com/ahq-app/ahq) の拡張機能を作るための、仕様書とコーディングエージェント向けの指示（`AGENTS.md`）です。
+English | [日本語](README.ja.md)
 
-## 拡張機能で作れるもの
+Specifications and instructions for coding agents (`AGENTS.md`) for building extensions for [AHQ](https://github.com/ahq-app/ahq).
 
-- **テーマ**: 画面とターミナルの配色
-- **サウンドパック**: 通知音
-- **画面（views）**: AHQ の中に、独自の画面を追加する
-- **フック（hooks）**: AHQ の中のイベントに反応する
+## What you can build with extensions
 
-## はじめかた
+- **Themes**: colors for the UI and the terminal
+- **Sound packs**: notification sounds
+- **Screens (views)**: add your own screens inside AHQ
+- **Hooks**: react to events inside AHQ
 
-コーディングエージェント（Claude Code など）を使って作るのが、一番かんたんです。
+## Getting started
+
+The easiest way is to build with a coding agent (Claude Code, for example).
 
 ```sh
-ahq create-extension my-ext   # このキットを my-ext ディレクトリに取得する
+ahq create-extension my-ext   # fetches this kit into the my-ext directory
 cd my-ext
 ```
 
-その場所でコーディングエージェントを起動し、**作りたい拡張を、そのまま相談してください**。たとえば、次のように頼みます。
+Start your coding agent there and **just tell it what you want to build**. For example:
 
-- 「Nord に似た、青系の暗いテーマを作って」
-- 「完了したときに鳴る、短いチャイムのサウンドパックを作って」
-- 「選択中のプロジェクトの名前を表示する画面を作って」
+- "Make a dark, blue-tinted theme similar to Nord"
+- "Make a sound pack with a short chime that plays on completion"
+- "Make a screen that shows the name of the selected project"
 
-エージェントは、`AGENTS.md` と `docs/` の仕様を読み、必要なファイルを作って、AHQ にインストールします。画面付きの拡張など、ビルドが必要なものは、テンプレート（[ahq-ext-template-vite](https://github.com/ahq-app/ahq-ext-template-vite)）を取得して使います。
+The agent reads the specifications in `AGENTS.md` and `docs/en/`, writes the files that are needed, and installs them into AHQ. For extensions that need a build, such as ones with screens, it fetches and uses the template ([ahq-ext-template-vite](https://github.com/ahq-app/ahq-ext-template-vite)).
 
-インストールした拡張は、AHQ を再起動せずに反映されます。見た目や動作を確認して、エージェントに調整を頼んでください。
+An installed extension is applied without restarting AHQ. Check how it looks and behaves, and ask the agent to adjust it.
 
-## 必要なもの
+## Requirements
 
-- AHQ と、`ahq` コマンド
-- Vite を使う拡張（画面付きなど）を作る場合は、Node.js
+- AHQ and the `ahq` command
+- Node.js, if you build an extension that uses Vite (for example, one with screens)
 
-## 仕様書
+## Specifications
 
-エージェントを使わず、手で作る場合は、次を参照してください。
+If you build by hand without an agent, refer to the following.
 
-| ファイル | 内容 |
+| File | Content |
 | --- | --- |
-| [docs/manifest.md](docs/manifest.md) | `manifest.json` の共通事項、インストール、zip の作り方 |
-| [docs/theme.md](docs/theme.md) | テーマ |
-| [docs/soundpack.md](docs/soundpack.md) | サウンドパック |
-| [docs/views.md](docs/views.md) | 画面 |
-| [docs/hooks.md](docs/hooks.md) | フック |
+| [docs/en/manifest.md](docs/en/manifest.md) | Common rules for `manifest.json`, installation, how to make the zip |
+| [docs/en/theme.md](docs/en/theme.md) | Themes |
+| [docs/en/soundpack.md](docs/en/soundpack.md) | Sound packs |
+| [docs/en/views.md](docs/en/views.md) | Screens |
+| [docs/en/hooks.md](docs/en/hooks.md) | Hooks |
 
-仕様書は、現在は日本語のみです。
+The specifications are available in English and Japanese ([日本語](docs/ja/)). The Japanese version is the primary source, and the English version is updated to match it.
