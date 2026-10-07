@@ -81,16 +81,7 @@ const project = await window.ahq.call('project.getCurrent')
 | --- | --- | --- | --- |
 | `project.getCurrent` | None | `{ id, name, path }` or `null` | The project that was selected when this screen was opened. It does not change even if the user switches to another project while the screen is open. |
 | `task.openComposerDraft` | `{ text: string }` | `null` | Opens a new task draft for the current project with `text` already entered (the user confirms the submission). It is an error if no project is selected. |
-| `github.listIssues` | None | `{ number, title, state, labels, updatedAt, commentCount }[]` | The list of GitHub Issues of the current project. |
-| `github.getIssue` | `{ number }` | `{ number, title, body, state, labels, author, comments: { author, body, createdAt }[] }` | The details of an Issue. |
-| `github.commentIssue` | `{ number, body }` | `null` | Comments on an Issue. |
-| `github.closeIssue` | `{ number }` | `null` | Closes an Issue. |
-| `github.getIssueTaskTemplate` | None | `string` | The template used when creating a task from an Issue (the saved value). |
-| `github.setIssueTaskTemplate` | `{ template: string }` | `null` | Saves that template. |
-| `github.getDefaultIssueTaskTemplate` | None | `string` | The default value of that template. |
 
-- `github.*` uses the local `gh` CLI and runs in the current project's directory. AHQ never stores a GitHub token.
-- A screen that requests `github.*` permissions has its button disabled when the selected project is not a GitHub repository.
 - There are no methods other than the above at the moment. If you need a feature, discuss it in an AHQ Issue.
 
 ## How to develop
