@@ -1,5 +1,7 @@
 # ahq-ext-kit
 
+[English](README.md) | 日本語
+
 [AHQ](https://github.com/ahq-app/ahq) の拡張機能を作るための、仕様書とコーディングエージェント向けの指示（`AGENTS.md`）です。
 
 ## 拡張機能で作れるもの
@@ -24,7 +26,7 @@ cd my-ext
 - 「完了したときに鳴る、短いチャイムのサウンドパックを作って」
 - 「選択中のプロジェクトの名前を表示する画面を作って」
 
-エージェントは、`AGENTS.md` と `docs/` の仕様を読み、必要なファイルを作って、AHQ にインストールします。画面付きの拡張など、ビルドが必要なものは、テンプレート（[ahq-ext-template-vite](https://github.com/ahq-app/ahq-ext-template-vite)）を取得して使います。
+エージェントは、`AGENTS.md` と `docs/en/` の仕様を読み、必要なファイルを作って、AHQ にインストールします。画面付きの拡張など、ビルドが必要なものは、テンプレート（[ahq-ext-template-vite](https://github.com/ahq-app/ahq-ext-template-vite)）を取得して使います。
 
 インストールした拡張は、AHQ を再起動せずに反映されます。見た目や動作を確認して、エージェントに調整を頼んでください。
 
@@ -39,10 +41,10 @@ cd my-ext
 
 | ファイル | 内容 |
 | --- | --- |
-| [docs/manifest.md](docs/manifest.md) | `manifest.json` の共通事項、インストール、zip の作り方 |
-| [docs/theme.md](docs/theme.md) | テーマ |
-| [docs/soundpack.md](docs/soundpack.md) | サウンドパック |
-| [docs/views.md](docs/views.md) | 画面 |
-| [docs/hooks.md](docs/hooks.md) | フック |
+| [docs/ja/manifest.md](docs/ja/manifest.md) | `manifest.json` の共通事項、インストール、zip の作り方 |
+| [docs/ja/theme.md](docs/ja/theme.md) | テーマ |
+| [docs/ja/soundpack.md](docs/ja/soundpack.md) | サウンドパック |
+| [docs/ja/views.md](docs/ja/views.md) | 画面 |
+| [docs/ja/hooks.md](docs/ja/hooks.md) | フック |
 
-仕様書は、現在は日本語のみです。
+仕様書は日本語版と英語版があります。日本語版が一次情報で、英語版は日本語版にあわせて更新します（[English](docs/en/)）。
