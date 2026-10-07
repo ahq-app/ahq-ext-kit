@@ -22,7 +22,10 @@ AHQ の中で起きるイベントに、拡張の JS が反応できるように
 
 | 名前 | 種類 | 発火するとき | 引数 |
 | --- | --- | --- | --- |
-| `taskUpdated` | 通知のみ | タスクの内容が変わったとき | 変わった時点のタスク |
+| `taskUpdated` | 通知のみ | タスク（Claude Code への依頼）の内容が変わったとき | 変わった時点のタスク |
+| `terminalTabUpdated` | 通知のみ | ターミナルタブ（Claude を起動せずシェルを開くタブ）の内容が変わったとき | 変わった時点のターミナルタブ |
+
+`taskUpdated` が渡すのは、Claude Code への依頼であるタスクだけです。ターミナルタブは `terminalTabUpdated` で受け取ります（以前の `taskUpdated` は、ターミナルタブも含めて渡していました）。
 
 ## 書き方
 
@@ -46,12 +49,25 @@ ahq.hooks.taskUpdated(function (task) {
 | `ID` | タスクの ID |
 | `Title` | タイトル |
 | `Status` | `composing` / `running` / `waiting_approval` / `idle` / `archived` のいずれか |
-| `Kind` | `agent` / `terminal` / `markdown` のいずれか（空のこともある） |
+| `Kind` | 現在は `agent`（空のこともある）。以前の版では `terminal` / `markdown` も入っていたが、いまは別の種類のタブとして扱う |
 | `AttentionKind` | ユーザーの注意を要する種類。`""`（なし）/ `question` / `completed` |
 | `LastPreview` | 直近の出力のプレビュー |
 | `ActiveSessionID` | アクティブなセッションの ID |
 
-この形は、将来変わる可能性があります（小文字始まりへの変更など）。
+### `terminalTabUpdated` の引数（ターミナルタブ）
+
+プロパティ名は、タスクと同じく大文字始まりです。主なもの:
+
+| プロパティ | 説明 |
+| --- | --- |
+| `ID` | ターミナルタブの ID |
+| `Title` | タイトル（シェルで前面にあるコマンド名が入る） |
+| `Status` | `idle` / `running` / `archived` のいずれか |
+| `ActiveSessionID` | アクティブなセッションの ID |
+| `WorktreePath` | 作業ディレクトリの worktree のパス（無ければ空） |
+| `SourceTaskID` | このタブを開いたタスクの ID（無ければ空） |
+
+これらの形は、将来変わる可能性があります（小文字始まりへの変更など）。
 
 ## 実行環境
 
