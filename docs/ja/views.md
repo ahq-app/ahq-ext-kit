@@ -81,16 +81,7 @@ const project = await window.ahq.call('project.getCurrent')
 | --- | --- | --- | --- |
 | `project.getCurrent` | なし | `{ id, name, path }` または `null` | この画面を開いた時点で選択していたプロジェクト。画面を開いている間に別のプロジェクトへ切り替えても、変わらない。 |
 | `task.openComposerDraft` | `{ text: string }` | `null` | 現在のプロジェクトに、新しいタスクの下書きを開き、`text` を入力済みにする（送信は、ユーザーが確定する）。プロジェクトが選択されていないとエラー。 |
-| `github.listIssues` | なし | `{ number, title, state, labels, updatedAt, commentCount }[]` | 現在のプロジェクトの GitHub Issue の一覧。 |
-| `github.getIssue` | `{ number }` | `{ number, title, body, state, labels, author, comments: { author, body, createdAt }[] }` | Issue の詳細。 |
-| `github.commentIssue` | `{ number, body }` | `null` | Issue にコメントする。 |
-| `github.closeIssue` | `{ number }` | `null` | Issue を閉じる。 |
-| `github.getIssueTaskTemplate` | なし | `string` | Issue からタスクを作るときのテンプレート（保存済みの値）。 |
-| `github.setIssueTaskTemplate` | `{ template: string }` | `null` | 同テンプレートを保存する。 |
-| `github.getDefaultIssueTaskTemplate` | なし | `string` | 同テンプレートの既定値。 |
 
-- `github.*` は、ローカルの `gh` CLI を使い、現在のプロジェクトのディレクトリで実行されます。AHQ が GitHub のトークンを保存することはありません。
-- `github.*` の権限を要求する画面は、選択中のプロジェクトが GitHub のリポジトリでないとき、ボタンが無効になります。
 - 上記以外のメソッドは、現時点ではありません。必要な機能がある場合は、AHQ の Issue で相談してください。
 
 ## 開発の進め方
