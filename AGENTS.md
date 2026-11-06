@@ -25,7 +25,7 @@ AHQ is a Mac app that runs the sessions of several coding agents side by side. A
 ### Themes and sound packs (no build)
 
 - Write `manifest.json` (and the audio files, for a sound pack) directly in this directory.
-- After writing, always check that you satisfy the required items of the specification. For themes in particular, **all 30 keys of `tokens` are required** (`docs/en/theme.md`). `terminalTheme` cannot use CSS functions such as `color-mix()`.
+- After writing, always check that you satisfy the required items of the specification. For themes in particular, **all 36 keys of `tokens` are required** (`docs/en/theme.md`). `terminalTheme` cannot use CSS functions such as `color-mix()`.
 - Install it.
 
   ```sh
