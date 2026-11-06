@@ -36,7 +36,7 @@ Catppuccin の Latte / Mocha のように、1 つのテーマファミリーが�
 
 ## `tokens`（画面の配色）
 
-CSS カスタムプロパティ名をキーに、素の CSS の色を値にします（`#rrggbb`、`rgb()`、`color-mix()` などの CSS 関数も使えます）。**次の 30 個のキーがすべて必要**で、1 つでも欠けるとそのテーマは登録されません。
+CSS カスタムプロパティ名をキーに、素の CSS の色を値にします（`#rrggbb`、`rgb()`、`color-mix()` などの CSS 関数も使えます）。**次の 36 個のキーがすべて必要**で、1 つでも欠けるとそのテーマは登録されません。
 
 | グループ | キー |
 | --- | --- |
@@ -48,6 +48,7 @@ CSS カスタムプロパティ名をキーに、素の CSS の色を値にし�
 | 成功・中立 | `--ahq-color-success-strong` / `--ahq-color-neutral-strong` / `--ahq-color-neutral-strong-text` |
 | ワークツリー | `--ahq-color-worktree-fg` / `--ahq-color-worktree-bg` |
 | サイドバー | `--ahq-color-sidebar-bg` / `--ahq-color-sidebar-text` / `--ahq-color-sidebar-border` / `--ahq-color-sidebar-hover` / `--ahq-color-sidebar-button-bg` / `--ahq-color-sidebar-button-hover` |
+| ツールバー | `--ahq-color-toolbar-bg` / `--ahq-color-toolbar-text` / `--ahq-color-toolbar-border` / `--ahq-color-toolbar-hover` / `--ahq-color-toolbar-button-bg` / `--ahq-color-toolbar-button-hover` |
 
 - トークンの用途の例（AHQ 本体での使われ方）: `--ahq-color-accent-soft` は淡い背景、`--ahq-color-success-strong` はトーストの背景、`--ahq-color-neutral-strong` はツールチップの背景、`--ahq-color-danger-soft-text` は文字色に使われます。
 - `--ahq-color-accent-hover` などは、`--ahq-color-accent` から `color-mix()` で導出する書き方もできます。

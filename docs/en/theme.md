@@ -36,7 +36,7 @@ Use this when one theme family has several variants, like Catppuccin's Latte / M
 
 ## `tokens` (colors of the UI)
 
-The keys are CSS custom property names, and the values are plain CSS colors (`#rrggbb`, `rgb()`, and CSS functions such as `color-mix()` are all allowed). **All of the following 30 keys are required**; if even one is missing, the theme is not registered.
+The keys are CSS custom property names, and the values are plain CSS colors (`#rrggbb`, `rgb()`, and CSS functions such as `color-mix()` are all allowed). **All of the following 36 keys are required**; if even one is missing, the theme is not registered.
 
 | Group | Keys |
 | --- | --- |
@@ -48,6 +48,7 @@ The keys are CSS custom property names, and the values are plain CSS colors (`#r
 | Success and neutral | `--ahq-color-success-strong` / `--ahq-color-neutral-strong` / `--ahq-color-neutral-strong-text` |
 | Worktree | `--ahq-color-worktree-fg` / `--ahq-color-worktree-bg` |
 | Sidebar | `--ahq-color-sidebar-bg` / `--ahq-color-sidebar-text` / `--ahq-color-sidebar-border` / `--ahq-color-sidebar-hover` / `--ahq-color-sidebar-button-bg` / `--ahq-color-sidebar-button-hover` |
+| Toolbar | `--ahq-color-toolbar-bg` / `--ahq-color-toolbar-text` / `--ahq-color-toolbar-border` / `--ahq-color-toolbar-hover` / `--ahq-color-toolbar-button-bg` / `--ahq-color-toolbar-button-hover` |
 
 - Examples of how AHQ itself uses the tokens: `--ahq-color-accent-soft` is used for pale backgrounds, `--ahq-color-success-strong` for the background of toasts, `--ahq-color-neutral-strong` for the background of tooltips, and `--ahq-color-danger-soft-text` for text color.
 - You can also derive `--ahq-color-accent-hover` and similar tokens from `--ahq-color-accent` with `color-mix()`.
